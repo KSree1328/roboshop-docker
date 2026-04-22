@@ -1,15 +1,13 @@
 services:
   catalogue:
-    build: 
-    context: ./catalogue
+    build:  ./catalogue
     dockerfile: Dockerfile
     image: joindevops/catalogue:1.0.0
     container_name: catalogue
     depends_on:
     - mongodb
   mongodb:
-    build: 
-    context: ./mongodb
+    build: ./mongodb
     dockerfile: Dockerfile
     image: joindevops/mongodb:1.0.0
     container_name: mongodb
