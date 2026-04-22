@@ -1,18 +1,17 @@
 services:
   catalogue:
     build: 
-    dockerfile: catalogue.Dockerfile
+      dockerfile: catalogue.Dockerfile
     image: joindevops/catalogue:1.0.0
     container_name: catalogue
     depends_on:
     - mongodb
   mongodb:
-    build: .
-    dockerfile: mongodb.Dockerfile
+    build: 
+      dockerfile: mongodb.Dockerfile
     image: joindevops/mongodb:1.0.0
     container_name: mongodb
    
-
 networks:
   default:
     driver: bridge
