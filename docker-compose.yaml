@@ -88,8 +88,7 @@ networks:
 
 volumes:
   mongodb: # docker volume create mongodb
-    driver: local
-    name: mongodb
   mysql:
-    driver: local
-    name: mysql
+  redis:
+  rabbitmq:
+  
