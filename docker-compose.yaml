@@ -58,22 +58,38 @@ services:
     build: ./mongodb # it moves to mongodb directory
     image: joindevops/mongodb:1.0.0 # docker build -t joindevops/mongodb:1.0.0
     container_name: mongodb
+    volumes:
+    - mongodb:/data/db # docker volume create mongodb
   redis:
     image: redis:7.0
     container_name: redis
+    volumes:
+    - redis:/data # docker volume create redis
   mysql:
     build: ./mysql
     image: joindevops/mysql:1.0.0
     container_name: mysql
+    volumes:
+    - mysql:/var/lib/mysql # docker volume create mysql
   rabbitmq:
     image: rabbitmq:3
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
     container_name: rabbitmq
+    volumes:
+    - rabbitmq:/var/lib/rabbitmq # docker volume create rabbitmq    
 
 networks:
   default:
     driver: bridge
     name: roboshop
     external: false # if true, you need to create network manually
+
+volumes:
+  mongodb: # docker volume create mongodb
+    driver: local
+    name: mongodb
+  mysql:
+    driver: local
+    name: mysql
